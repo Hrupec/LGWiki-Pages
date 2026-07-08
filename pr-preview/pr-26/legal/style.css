@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: 
+        radial-gradient(circle at top left, rgba(140, 70, 180, 0.28), transparent 30%),
+        radial-gradient(circle at top right, rgba(70, 230, 255, 0.13), transparent 28%),
+        radial-gradient(circle at bottom, rgba(255, 70, 190, 0.1), transparent 35%),
+        linear-gradient(135deg, #03040a, #080d1e 45%, #120d24);;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.legal-container{
+max-width:900px;
+margin:120px auto 80px;
+padding:40px;
+background:rgba(15,15,25,0.85);
+backdrop-filter:blur(10px);
+border-radius:16px;
+box-shadow:0 0 30px rgba(0,0,0,0.5);
+color:#eee;
+}
+
+.legal-container h1{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.legal-container h2{
+margin-top:25px;
+font-size:20px;
+color:#ff4fd8;
+}
+
+.legal-container p{
+line-height:1.7;
+margin-top:10px;
+}
+
+.legal-container ul{
+margin-top:10px;
+padding-left:20px;
+}
+
+.legal-container li{
+margin-bottom:8px;
+}
