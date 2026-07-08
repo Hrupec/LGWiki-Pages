@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: repeating-linear-gradient(45deg, #fdd835, #fdd835 40px, #212121 40px, #212121 80px);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 50px 80px;
+    border-radius: 10px;
+    border: 4px solid #fdd835;
+    box-shadow: 0 0 20px black;
+}
+
+.helmet {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.back {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.08));
+}
+
+.back:hover {
+    background: linear-gradient(135deg, #fdd835, #fdd835);
+    box-shadow:
+    0 0 10px rgba(236, 240, 4, 0.5),
+    0 0 20px rgba(236, 240, 4, 0.4),
+    0 0 40px rgba(236, 240, 4, 0.2);
+    transform: translateY(-2px) scale(1.03);
+    backdrop-filter: blur(6px);
+}
