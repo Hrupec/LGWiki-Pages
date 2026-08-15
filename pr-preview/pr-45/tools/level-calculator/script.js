@@ -1,0 +1,47 @@
+(function(){var e={common:[null,null,25,75,150,250,400,600,850,1150,1500,1950,2550,3300,4200,5300,6700,8700,11400,14900,19400,25400,32900,42400,54400,69400,87400],rare:[null,null,25,75,150,250,380,540,730,950,1200,1530,1950,2450,3050,3800,4750,6150,8050,10450,13450,17150,21650,27150,34150,43150,55150,67300,79650,92200,105e3,118100],epic:[null,null,15,45,90,150,230,330,450,590,750,950,1200,1520,1920,2420,3070,3970,5070,6420,8220,10520,13520,17520,22520,28820,36820,45020,53420,62070,71020,80320],legendary:[null,null,5,15,30,50,90,150,230,330,450,600,800,1050,1370,1770,2270,2970,3820,4820,6120,7820,10020,12920,16620,21420,27420,33570,39870,46320,52970,59870]},t={common:[null,null,50,130,250,450,750,1250,2250,3750,5750,8750,12750,18750,26750,36750,49750,65750,84750,106750,131750,159750,191750,227750,267750,312750,362750],rare:[null,null,100,400,1e3,1900,3300,5300,8800,12800,17800,23800,31800,41800,53800,67800,83800,102800,124800,149800,177800,209800,245800,285800,330800,380800,435800,492800,552800,615800,681800,751800],epic:[null,null,300,900,1800,3200,5100,7600,11600,16600,22600,29600,38600,49600,62600,78600,97600,119600,145600,175600,209600,247600,289600,336600,386600,446600,511600,578600,648600,721600,798600,880600],legendary:[null,null,600,1500,2900,4800,7300,10800,16300,23300,32300,43300,57300,74300,94300,118300,146300,178300,214300,254300,298300,346300,398300,455300,517300,585300,660300,740300,826300,919300,1020300,1130300]},n={common:[11,16,21,26],rare:[11,16,21,26],epic:[6,11,16,21,26],legendary:[6,11,16,21,26,31,31]};function r(){let e=document.getElementById(`rarity`).value,t=document.getElementById(`currentR`),r=document.getElementById(`currentL`),a=i[e];Array.from(t.options).forEach(e=>{e.disabled=parseInt(e.value)>a}),parseInt(t.value)>a&&(t.value=a),n[e],Array.from(r.options).forEach(e=>{e.disabled=parseInt(e.value)>31})}var i={common:4,rare:4,epic:5,legendary:7};function a(e){let t={};for(let n of Object.keys(e)){let r=e[n],i=[null,null];if(!r||r.length<3){t[n]=i;continue}i[2]=r[2];for(let e=3;e<r.length;e++)i[e]=r[e]-r[e-1];t[n]=i}return t}var o=a(e),s=a(t);function c(e,r,a,s){let c=o[r],l=t[r],u=n[r],d=i[r],f=a,p=s,m=e,h=[],g={R:f,spend:0,credits:0},_=0;for(;;){if(f<d){let e=u[f];if(p>=e){h.push({R:f,level:p,spend:g.spend,left:m,credits:g.credits}),f++,p=1,g={R:f,spend:0,credits:0};continue}}let e=c[p+1];if(!e||m<e)break;m-=e,g.spend+=e;let t=l[p+1]-(p>1?l[p]:0);g.credits+=t,_+=t,p++}return h.push({R:f,level:p,spend:g.spend,left:m,credits:g.credits}),{rows:h,finalR:f,finalL:p,leftover:m,totalCredits:_}}function l(e,t,n,r){let i=c(e,t,n,r),a=e=>e.toLocaleString(`en-US`);document.getElementById(`headline`).innerHTML=`Results:&emsp;R${n} L${r} → R${i.finalR} L${i.finalL}&emsp;|&emsp;Leftover MP: ${a(i.leftover)}&emsp;|&emsp;Total Credits: <img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/credits.webp" class="resources"> ${a(i.totalCredits)}`,document.getElementById(`tableWrap`).innerHTML=`
+    <table>
+      <thead>
+        <tr>
+          <th>Reboot</th>
+          <th>Level</th>
+          <th>Spend MP</th>
+          <th>Leftover MP</th>
+          <th><img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/credits.webp" class="resources"> Credits</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${i.rows.map(e=>`
+          <tr>
+            <td><b>R${e.R}</b></td>
+            <td>L${e.level}</td>
+            <td>${a(e.spend)}</td>
+            <td>${a(e.left)}</td>
+            <td><img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/credits.webp" class="resources"> ${a(e.credits)}</td>
+          </tr>
+        `).join(``)}
+      </tbody>
+    </table>
+  `}function u(e,t,n,r,i,a,o=!1){let s=e=>e==null?`—`:e.toLocaleString(`en-US`),c=[`common`,`rare`,`epic`,`legendary`],l=`<table>
+        <thead>
+          <tr>
+            <th>${e}</th>
+            ${c.map((e,n)=>`<th><img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/${e}-points.webp" class="resources"> ${t[n]}</th>`).join(``)}
+          </tr>
+        </thead>
+        <tbody>`;for(let e=2;e<n.length;e++){let t=n[e],i=a(e,t);l+=`<tr class="${i?`rb`:``}"><td><b>${t}</b></td>`;for(let t of c){let n=(r[t]||[])[e]??null,i=n==null?` class="na"`:``,a=``;n!=null&&(a=o?`<img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/credits.webp" class="resources"> `:`<img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/${t}-points.webp" class="resources"> `),l+=`<td${i}>${a}${s(n)}</td>`}l+=`</tr>`}return l+=`</tbody></table>`,l}function d(n=`en`){let r=[null,null,`1 → 2`,`1 → 3`,`1 → 4`,`1 → 5`,`1 → 6`,`1 → 7`,`1 → 8`,`1 → 9`,`1 → 10`,`1 → 11`,`1 → 12`,`1 → 13`,`1 → 14`,`1 → 15`,`1 → 16`,`1 → 17`,`1 → 18`,`1 → 19`,`1 → 20`,`1 → 21`,`1 → 22`,`1 → 23`,`1 → 24`,`1 → 25`,`1 → 26`,`1 → 27`,`1 → 28`,`1 → 29`,`1 → 30`,`1 → 31`],i=[null,null,`1 → 2`,`2 → 3`,`3 → 4`,`4 → 5`,`5 → 6`,`6 → 7`,`7 → 8`,`8 → 9`,`9 → 10`,`10 → 11`,`11 → 12`,`12 → 13`,`13 → 14`,`14 → 15`,`15 → 16`,`16 → 17`,`17 → 18`,`18 → 19`,`19 → 20`,`20 → 21`,`21 → 22`,`22 → 23`,`23 → 24`,`24 → 25`,`25 → 26`,`26 → 27`,`27 → 28`,`28 → 29`,`29 → 30`,`30 → 31`],a=[`Common`,`Rare`,`Epic`,`Legendary`],c=e=>[6,11,16,21,26,31].includes(e),l=e=>[6,11,16,21,26,31].includes(e);document.getElementById(`cum-mp`).innerHTML=u(`Level`,a,r,e,n,c),document.getElementById(`cum-cr`).innerHTML=u(`Level`,a,r,t,n,c,!0),document.getElementById(`per-mp`).innerHTML=u(`Level`,a,i,o,n,l),document.getElementById(`per-cr`).innerHTML=u(`Level`,a,i,s,n,l,!0)}d(`en`);var f=document.getElementById(`calcForm`),p=document.getElementById(`currentR`),m=document.getElementById(`currentL`);(function(){for(let e=1;e<=31;e++){let t=document.createElement(`option`);t.value=String(e),t.textContent=`L `+e,m.appendChild(t)}m.value=`1`})();var h=document.getElementById(`points`);h.addEventListener(`invalid`,function(){this.setCustomValidity(`Please enter the number of mercenary points.`)}),h.addEventListener(`input`,function(){this.setCustomValidity(``)}),f.addEventListener(`submit`,e=>{e.preventDefault();let t=Math.max(0,Number(h.value||0)),n=document.getElementById(`rarity`).value;l(t,n,parseInt(p.value),parseInt(m.value))}),document.querySelectorAll(`.tabs`).forEach(e=>{let t=e.querySelectorAll(`.tab-btn`),n=e.querySelectorAll(`.tab-panel`);t.forEach(r=>r.onclick=()=>{t.forEach(e=>e.classList.remove(`active`)),n.forEach(e=>e.classList.remove(`active`)),r.classList.add(`active`);let i=r.dataset.tab||r.dataset.boost;e.querySelector(`#tab-`+i+`, #boost-`+i).classList.add(`active`)})}),document.getElementById(`rarity`).addEventListener(`change`,r),document.getElementById(`currentR`).addEventListener(`change`,r),r(),document.querySelectorAll(`.number-wrap`).forEach(e=>{let t=e.querySelector(`input[type="number"]`),n=e.querySelectorAll(`.number-btn`),r=null,i=null,a=260,o=e=>{let n=Number(t.step||1),r=t.min===``?-1/0:Number(t.min),i=t.max===``?1/0:Number(t.max),a=(t.value===``?0:Number(t.value))+e*n;a=Math.max(r,Math.min(i,a)),t.value=a,t.dispatchEvent(new Event(`input`,{bubbles:!0}))},s=()=>{clearTimeout(r),clearTimeout(i),r=null,i=null,a=260},c=e=>{s(),o(e),r=setTimeout(()=>{let t=()=>{o(e),a=Math.max(35,a*.82),i=setTimeout(t,a)};t()},350)};n.forEach(e=>{let t=e.dataset.step===`up`?1:-1;e.addEventListener(`pointerdown`,n=>{n.preventDefault(),e.setPointerCapture(n.pointerId),c(t)}),e.addEventListener(`pointerup`,s),e.addEventListener(`pointercancel`,s),e.addEventListener(`pointerleave`,s),e.addEventListener(`contextmenu`,e=>{e.preventDefault()})})});var g={common:[[`+0 → +1`,6,10,18,37,85],[`+1 → +2`,24,40,72,148,340],[`+2 → +3`,96,160,288,592,1360],[`+3 → +4`,384,640,1152,2368,5440]],rare:[[`+0 → +1`,10,17,37,78,140,null],[`+1 → +2`,40,68,148,312,560,null],[`+2 → +3`,160,272,592,1248,2240,null],[`+3 → +4`,640,1088,2368,4992,8960,null]],epic:[[`+0 → +1`,30,40,75,115,175,null],[`+1 → +2`,120,160,300,460,700,null],[`+2 → +3`,480,640,1200,1840,2800,null],[`+3 → +4`,1920,2560,4800,7360,11200,null]],legendary:[[`+0 → +1`,100,110,138,173,220,null],[`+1 → +2`,400,440,552,692,880,null],[`+2 → +3`,1600,1760,2208,2768,3520,null],[`+3 → +4`,6400,7040,8832,11072,14080,null]]};function _(e){return`
+  <table>
+    <thead>
+      <tr>
+        ${[`Boost`,`Lvl 1–5`,`Lvl 6–10`,`Lvl 11–15`,`Lvl 16–20`,`Lvl 21–26`,`Lvl 27–31`].map(e=>`<th>${e}</th>`).join(``)}
+      </tr>
+    </thead>
+    <tbody>
+      ${e.map(e=>`
+      <tr>
+        <td><b>${e[0]}</b></td>
+        ${e.slice(1).map(e=>e==null?`<td class="na">—</td>`:`<td><img src="/LGWiki-Pages/pr-preview/pr-45/tools/images/resources/super-serum.webp" class="resources"> ${e.toLocaleString(`en-US`)}</td>`).join(``)}
+      </tr>
+      `).join(``)}
+    </tbody>
+  </table>
+  `}function v(){document.getElementById(`boost-table-common`).innerHTML=_(g.common),document.getElementById(`boost-table-rare`).innerHTML=_(g.rare),document.getElementById(`boost-table-epic`).innerHTML=_(g.epic),document.getElementById(`boost-table-legendary`).innerHTML=_(g.legendary)}v(),document.querySelectorAll(`[data-boost]`).forEach(e=>{e.addEventListener(`click`,()=>{document.querySelectorAll(`[data-boost]`).forEach(e=>e.classList.remove(`active`)),document.querySelectorAll(`#boost-common, #boost-rare, #boost-epic, #boost-legendary`).forEach(e=>e.classList.remove(`active`)),e.classList.add(`active`),document.getElementById(`boost-`+e.dataset.boost).classList.add(`active`)})})})();

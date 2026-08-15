@@ -1,0 +1,617 @@
+/* =========================
+   Wiki Page Layout
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background:
+        radial-gradient(circle at 10% 5%, rgba(255, 55, 177, 0.22), transparent 30%),
+        radial-gradient(circle at 80% 15%, rgba(104, 191, 206, 0.15), transparent 30%),
+        radial-gradient(circle at 50% 95%, rgba(255, 55, 177, 0.15), transparent 35%),
+        linear-gradient(180deg, #080813 0%, #111024 45%, #160f27 100%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.55);
+}
+
+body.wiki-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wiki-layout {
+    display: grid;
+    width: min(1280px, calc(100% - 340px));
+    margin: 90px max(25px, calc((100vw - 380px - 1040px) / 2)) 20px auto;
+    flex: 1;
+}
+
+#wikiSidebar {
+    display: block;
+    min-width: 0;
+}
+
+body.wiki-sidebar-closed #wikiSidebar {
+    overflow: hidden;
+}
+
+.wiki-content {
+    min-width: 0;
+}
+
+@media (max-width: 980px) {
+    .wiki-layout {
+        display: block;
+        width: min(100% - 24px, 900px);
+        margin: 90px auto 10px;
+        padding: 0;
+    }
+
+    #wikiSidebar {
+        display: block;
+    }
+}
+
+
+/* =========================
+   Wiki Home Base
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 10% 5%, rgba(255, 55, 177, 0.22), transparent 30%),
+        radial-gradient(circle at 80% 15%, rgba(104, 191, 206, 0.15), transparent 30%),
+        radial-gradient(circle at 50% 95%, rgba(255, 55, 177, 0.15), transparent 35%),
+        linear-gradient(180deg, #080813 0%, #111024 45%, #160f27 100%);
+}
+
+.wiki-home {
+    color: #f2f5ff;
+}
+
+.wiki-home a {
+    color: inherit;
+}
+
+.wiki-home h1,
+.wiki-home h2,
+.wiki-home p {
+    margin: 0;
+}
+
+
+/* =========================
+   Wiki Home Hero
+========================= */
+
+.wiki-home-hero {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 16px;
+    min-height: 340px;
+    border: 1px solid rgba(104, 191, 206, 0.22);
+    border-radius: 26px;
+    padding: clamp(22px, 4vw, 42px);
+    background:
+        radial-gradient(circle at 14% 8%, rgba(255, 56, 184, 0.2), transparent 34%),
+        radial-gradient(circle at 88% 16%, rgba(104, 191, 206, 0.17), transparent 32%),
+        linear-gradient(135deg, rgba(14, 14, 34, 0.92), rgba(10, 10, 24, 0.82));
+    box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+}
+
+.wiki-home-hero::before {
+    content: "";
+    position: absolute;
+    inset: auto 8% 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 56, 184, 0.72), rgba(104, 191, 206, 0.72), transparent);
+    box-shadow: 0 0 22px rgba(104, 191, 206, 0.35);
+}
+
+.wiki-home-hero-content,
+.wiki-home-hero-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.wiki-home-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 780px;
+}
+
+.wiki-home-kicker,
+.wiki-home-section-kicker {
+    width: fit-content;
+    border: 1px solid rgba(104, 191, 206, 0.28);
+    border-radius: 999px;
+    padding: 6px 12px;
+    background: rgba(104, 191, 206, 0.08);
+    color: #68bfce;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.wiki-home-hero h1 {
+    margin-top: 16px;
+    font-size: clamp(38px, 6vw, 74px);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-shadow: 0 0 26px rgba(255, 56, 184, 0.2);
+}
+
+.wiki-home-hero-content .wiki-home-description {
+    max-width: 690px;
+    margin-top: 10px;
+    color: rgba(242, 245, 255, 0.74);
+    font-size: clamp(15px, 1.7vw, 18px);
+    line-height: 1.7;
+}
+
+.wiki-home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+
+/* =========================
+   Wiki Home Buttons
+========================= */
+
+.wiki-home-btn {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    padding: 0 18px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.wiki-home-btn-primary {
+    border: 1px solid rgba(255, 56, 184, 0.5);
+    background:
+        linear-gradient(135deg, rgba(255, 56, 184, 0.28), rgba(104, 191, 206, 0.16));
+    color: #ffffff;
+    box-shadow: 0 0 22px rgba(255, 56, 184, 0.14);
+}
+
+.wiki-home-btn-secondary {
+    border: 1px solid rgba(104, 191, 206, 0.34);
+    background: rgba(255, 255, 255, 0.055);
+    color: #f2f5ff;
+}
+
+.wiki-home-btn:hover {
+    transform: translateY(-2px);
+}
+
+.wiki-home-btn-primary:hover {
+    border-color: rgba(255, 56, 184, 0.75);
+    box-shadow: 0 0 28px rgba(255, 56, 184, 0.22);
+}
+
+.wiki-home-btn-secondary:hover {
+    border-color: rgba(104, 191, 206, 0.62);
+    background: rgba(104, 191, 206, 0.1);
+}
+
+.wiki-home-btn:focus-visible,
+.wiki-home-card:focus-visible,
+.wiki-home-link-grid a:focus-visible,
+.wiki-home-inline-link:focus-visible {
+    outline: 2px solid rgba(104, 191, 206, 0.72);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   Wiki Home Hero Panel
+========================= */
+
+.wiki-home-hero-panel {
+    align-self: center;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 22px;
+    padding: 18px;
+    background: rgba(6, 7, 18, 0.48);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+.wiki-home-panel-header,
+.wiki-home-box-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+}
+
+.wiki-home-panel-icon,
+.wiki-home-box-header span {
+    color: #68bfce;
+    text-shadow: 0 0 14px rgba(104, 191, 206, 0.5);
+}
+
+.wiki-home-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.wiki-home-stat {
+    min-height: 84px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(104, 191, 206, 0.16);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.045);
+    text-align: center;
+}
+
+.wiki-home-stat strong {
+    display: block;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    transform: translateY(12px);
+}
+
+.wiki-home-stat span {
+    margin-top: 6px;
+    color: rgba(191, 199, 238, 0.72);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.wiki-home-hero-panel .wiki-home-panel-note {
+    margin: 12px 6px 0;
+    color: rgba(242, 245, 255, 0.68);
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+
+/* =========================
+   Wiki Home Sections
+========================= */
+
+.wiki-home-section {
+    margin-top: 26px;
+    border: 1px solid rgba(104, 191, 206, 0.18);
+    border-radius: 24px;
+    padding: clamp(18px, 3vw, 26px);
+    background:
+        radial-gradient(circle at 8% 0%, rgba(255, 56, 184, 0.08), transparent 30%),
+        rgba(12, 12, 28, 0.62);
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(14px);
+}
+
+.wiki-home-section-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.wiki-home-section-header h2 {
+    margin-top: 10px;
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: -0.03em;
+}
+
+.wiki-home-section-header > p {
+    max-width: 380px;
+    color: rgba(242, 245, 255, 0.65);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   Wiki Home Cards
+========================= */
+
+.wiki-home-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.wiki-home-grid-sections {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.wiki-home-card {
+    min-height: 142px;
+    display: flex;
+    gap: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+    padding: 16px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.wiki-home-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(104, 191, 206, 0.38);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(104, 191, 206, 0.12), transparent 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.wiki-home-card-icon {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(104, 191, 206, 0.24);
+    border-radius: 14px;
+    background: rgba(104, 191, 206, 0.08);
+    color: #68bfce;
+    font-size: 18px;
+    text-shadow: 0 0 14px rgba(104, 191, 206, 0.55);
+}
+
+.wiki-home-card-content {
+    min-width: 0;
+}
+
+.wiki-home-card-content strong {
+    display: block;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.wiki-home-card-content small {
+    display: block;
+    margin-top: 8px;
+    color: rgba(242, 245, 255, 0.64);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   Wiki Home Link Grid
+========================= */
+
+.wiki-home-link-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.wiki-home-link-grid a {
+    min-height: 78px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.045);
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.wiki-home-link-grid a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 56, 184, 0.34);
+    background: rgba(255, 56, 184, 0.075);
+}
+
+.wiki-home-link-grid span {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.wiki-home-link-grid small {
+    margin-top: 6px;
+    color: rgba(104, 191, 206, 0.82);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   Wiki Home Bottom Boxes
+========================= */
+
+.wiki-home-notice-section {
+    margin-top: 16px;
+}
+
+.wiki-home-box {
+    margin-top: 26px;
+    border: 1px solid rgba(104, 191, 206, 0.18);
+    border-radius: 24px;
+    padding: clamp(18px, 3vw, 26px);
+    background:
+        radial-gradient(circle at 10% 0%, rgba(104, 191, 206, 0.09), transparent 34%),
+        rgba(12, 12, 28, 0.62);
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(14px);
+}
+
+.wiki-home-box-accent {
+    background:
+        radial-gradient(circle at 10% 0%, rgba(255, 56, 184, 0.11), transparent 34%),
+        rgba(12, 12, 28, 0.62);
+}
+
+.wiki-home-box-header h2 {
+    font-size: 24px;
+    letter-spacing: -0.03em;
+}
+
+.wiki-home-box > p {
+    margin-top: 14px;
+    color: rgba(242, 245, 255, 0.68);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.wiki-home-inline-link {
+    width: fit-content;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 18px;
+    border: 1px solid rgba(104, 191, 206, 0.28);
+    border-radius: 14px;
+    padding: 0 14px;
+    background: rgba(104, 191, 206, 0.08);
+    color: #f2f5ff;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.wiki-home-inline-link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(104, 191, 206, 0.58);
+    background: rgba(104, 191, 206, 0.13);
+}
+
+
+/* =========================
+   Wiki Home Reveal Animation
+========================= */
+
+.wiki-home-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+}
+
+.wiki-home-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   Wiki Home Responsive
+========================= */
+
+@media (max-width: 1220px) {
+    .wiki-home-grid-sections,
+    .wiki-home-link-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .wiki-home-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .wiki-home-hero-panel {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 980px) {
+    .wiki-home {
+        padding-bottom: 18px;
+    }
+
+    .wiki-home-hero {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .wiki-home-section-header {
+        display: block;
+    }
+
+    .wiki-home-section-header > p {
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .wiki-home-hero,
+    .wiki-home-section,
+    .wiki-home-box {
+        border-radius: 20px;
+    }
+
+    .wiki-home-grid-sections,
+    .wiki-home-link-grid,
+    .wiki-home-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .wiki-home-card {
+        min-height: auto;
+    }
+
+    .wiki-home-actions {
+        display: grid;
+    }
+
+    .wiki-home-btn {
+        width: 100%;
+    }
+}
