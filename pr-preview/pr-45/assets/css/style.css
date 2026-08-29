@@ -4,11 +4,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background:
-        radial-gradient(circle at 10% 5%, rgba(255, 55, 177, 0.22), transparent 30%),
-        radial-gradient(circle at 80% 15%, rgba(104, 191, 206, 0.15), transparent 30%),
-        radial-gradient(circle at 50% 95%, rgba(255, 55, 177, 0.15), transparent 35%),
-        linear-gradient(180deg, #080813 0%, #111024 45%, #160f27 100%);
+  background: #070b0f;
 }
 
 ::-webkit-scrollbar-thumb {
