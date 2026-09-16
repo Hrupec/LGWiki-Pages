@@ -1133,6 +1133,7 @@ Local Navigation
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     color: rgba(242, 245, 255, 0.78);
     text-align: center;
+    font-weight: bold;
 }
 
 .wiki-table th {
