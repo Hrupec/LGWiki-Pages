@@ -2620,29 +2620,36 @@ body.wiki-modal-open {
 }
 
 .tab-rank-2 {
-    border-left: 3px solid rgba(255, 170, 90, 0.7);
+    border-left: 3px solid rgba(240, 161, 95, 0.7);
 }
 
 .tab-rank-3 {
-    border-left: 3px solid rgba(180, 180, 180, 0.6);
+    border-left: 3px solid rgba(174, 184, 199, 0.7);
 }
 
 .tab-rank-4 {
-    border-left: 3px solid rgba(255, 140, 90, 0.7);
+    border-left: 3px solid rgba(233, 120, 95, 0.7);
 }
 
 .tab-rank-5 {
-    border-left: 3px solid rgba(255, 215, 90, 0.7);
+    border-left: 3px solid rgba(242, 200, 91, 0.7);
 }
 
 .tab-rank-6 {
-    border-left: 3px solid rgba(255, 255, 255, 0.6);
+    border-left: 3px solid rgba(185, 140, 255, 0.7);
 }
 
 .tab-rank-7 {
-    border-left: 3px solid rgba(255, 255, 255, 0.6);
+    border-left: 3px solid rgba(228, 106, 196, 0.7);
 }
 
+.tab-rank-8 {
+    border-left: 3px solid rgba(114, 141, 232, 0.7);
+}
+
+.tab-rank-9 {
+    border-left: 3px solid rgba(217, 107, 124, 0.7);
+}
 
 /* =========================================================
    Extra Shared Elements From Basic Schema
