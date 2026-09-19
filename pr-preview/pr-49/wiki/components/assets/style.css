@@ -1144,6 +1144,11 @@ Local Navigation
     text-transform: uppercase;
 }
 
+.wiki-heli-rewards-table .wiki-table th:nth-child(3),
+.wiki-heli-rewards-table .wiki-table td:nth-child(3) {
+    text-align: left;
+}
+
 .wiki-table tr:hover td {
     background: rgba(104, 191, 206, 0.045);
 }
