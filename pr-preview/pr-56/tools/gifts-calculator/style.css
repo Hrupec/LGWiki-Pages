@@ -121,8 +121,6 @@ button {
 }
 
 .info-icon {
-  width: 22px;
-  height: 22px;
   color: #e6e9ff;
   opacity: .7;
   cursor: pointer;
@@ -171,8 +169,6 @@ button {
 .data-toggle {
   position: absolute;
   right: 0;
-  width: 30px;
-  height: 30px;
   color: #e6e9ff;
   cursor: pointer;
   opacity: .8;
@@ -443,8 +439,6 @@ Lvl Badge
 }
 
 .lvl-grid-btn {
-  width: 16px;
-  height: 16px;
   color: #e6e9ff;
   cursor: pointer;
   opacity: .7;
@@ -778,14 +772,11 @@ body.number-holding * {
 .search-icon {
   position: absolute;
   left: 15px;
-  top: 35%;
+  top: 50%;
   z-index: 2;
 
   display: grid;
   place-items: center;
-
-  width: 20px;
-  height: 20px;
 
   color: #f2f5ff;
   font-size: 28px;
@@ -835,19 +826,13 @@ body.number-holding * {
   display: grid;
   place-items: center;
 
-  width: 30px;
-  height: 30px;
   padding: 0;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50%;
 
   color: #f2f5ff;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
 
   font-size: 20px;
-  font-weight: 800;
   line-height: 1;
 
   cursor: pointer;
@@ -861,10 +846,7 @@ body.number-holding * {
 }
 
 .search-reset:hover {
-  color: #ffe6f8;
-  border-color: rgba(255, 118, 215, 0.38);
-  background: rgba(255, 118, 215, 0.16);
-  box-shadow: 0 0 10px rgba(255, 118, 215, 0.16);
+  color: #df4d4d;
   transform: translateY(-50%) scale(1.06);
 }
 
@@ -941,8 +923,6 @@ body.number-holding * {
 
 .gift-counter img,
 .gift-counter svg {
-  width: 20px;
-  height: 20px;
   display: block;
   color: #bfc7ee;
 }

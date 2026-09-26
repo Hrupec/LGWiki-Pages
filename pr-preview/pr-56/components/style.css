@@ -160,8 +160,6 @@ body {
 
 .nav-link img,
 .nav-link svg {
-    width: 26px;
-    height: 26px;
     object-fit: contain;
     pointer-events: none;
     transition: transform 0.3s ease;
