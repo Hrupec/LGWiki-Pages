@@ -79,6 +79,27 @@ body.wiki-sidebar-closed #wikiSidebar {
     object-fit: contain;
 }
 
+.factions {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
+    object-fit: contain;
+}
+
+.combat {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
+    object-fit: contain;
+}
+
+.classes {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
+    object-fit: contain;
+}
+
 .wiki-link {
     text-decoration: none;
     color: #68bfce;
